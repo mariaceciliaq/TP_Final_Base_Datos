@@ -22,12 +22,11 @@ group by a.anio
 
 #Bovinos total por categoria anio y provincia#
 
-SELECT anio, provincia,total_bovinos, tot,total_vacas, total_vaquillonas, total_novillos, total_novillitos, total_terneros,
+SELECT anio, provincia,total_bovinos, total_vacas, total_vaquillonas, total_novillos, total_novillitos, total_terneros,
 total_terneras,total_toros,total_toritos, total_bueyes
 FROM
 (select anio, provincia,
 SUM(coalesce(vacas,0)+coalesce(vaquillonas,0)+coalesce(novillos,0)+coalesce(novillitos,0)+coalesce(terneros,0)+coalesce(terneras,0)+coalesce(toros,0)+coalesce(toritos,0)+coalesce(bueyes,0)) as total_bovinos,
-SUM(coalesce(total_cabezas_bov,0)) as tot,
 SUM(coalesce(vacas,0)) as total_vacas,
 SUM(coalesce(vaquillonas,0)) as total_vaquillonas,
 SUM(coalesce(novillos,0)) as total_novillos,
